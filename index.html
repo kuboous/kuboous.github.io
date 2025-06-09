@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurum Verde Hotel</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+
+
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo">
+        <a href="#top">
+        <img src="images/logo.png" alt="logo">
+        </a>
+    </div>
+    <button class="menu-toggle" aria-label="Otevřít menu">☰</button>
+  </div>
+  <nav class="nav-menu">
+    <ul>
+      <li><a href="#rooms">Pokoje</a></li>
+      <li><a href="#reviews">Recenze</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#reservation">Rezervace</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Vítejte v Aurum Verde</h1>
+            <p>Luxusní ubytování s nezapomenutelnou atmosférou</p>
+            <a href="#reservation" class="btn">Rezervovat nyní</a>
+        </div>
+    </section>
+
+    <section class="countdown">
+        <h2>Speciální nabídka</h2>
+        <p class="special-offer">
+            20% sleva na Prezidentské apartmá během následujících 15 hodin!
+        </p>
+        <div id="timer"></div>
+        <a href="#reservation" class="btn">Rezervovat nyní</a>
+    </section>
+
+    <section id="rooms" class="rooms">
+  <h2>Nabídka prémiových pokojů</h2>
+  <div class="carousel">
+    <div class="carousel-track">
+      <!-- Prezident suite -->
+      <div class="carousel-item">
+        <img src="images/prezident.jpg" alt="Prezidentské apartmá">
+        <h3>Prezidentské apartmá</h3>
+        <p>Prostorný pokoj s panoramatickým výhledem na město</p>
+        <p class="price">Cena: 5 500 Kč / noc</p>
+        <a href="" class="btn-secondary">Zjistit více</a>
+      </div>
+      <!-- Luxusní suite -->
+      <div class="carousel-item">
+        <img src="images/luxurysuit.jpg" alt="Luxusní suite">
+        <h3>Luxusní suite</h3>
+        <p>Moderní design, king-size postel a privátní balkon</p>
+        <p class="price">Cena: 4 200 Kč / noc</p>
+        <a href="" class="btn-secondary">Zjistit více</a>
+      </div>
+      <!-- Romantický pokoj -->
+      <div class="carousel-item">
+        <img src="images/romantickypokoj.jpg" alt="Romantický pokoj">
+        <h3>Romantický pokoj</h3>
+        <p>Intimní atmosféra s viktoriánskými detaily</p>
+        <p class="price">Cena: 3 800 Kč / noc</p>
+        <a href="" class="btn-secondary">Zjistit více</a>
+      </div>
+      <div class="carousel-item">
+        <img src="images/bussiness.jpg" alt="Business Deluxe">
+        <h3>Business Deluxe</h3>
+        <p>Elegantní pokoj s pracovním koutem a vysokorychlostním internetem</p>
+        <p class="price">Cena: 4 500 Kč / noc</p>
+        <a href="" class="btn-secondary">Zjistit více</a>
+      </div>
+    </div>
+    <button id="prev">&#10094;</button>
+    <button id="next">&#10095;</button>
+  </div>
+</section>
+
+
+    <section id="reviews" class="reviews">
+        <h2>Recenze hostů</h2>
+        <div class="review">
+            <p>"Úžasný pobyt! Skvělý personál a krásné prostředí."</p>
+            <span>- Jana K.</span>
+        </div>
+        <div class="review">
+            <p>"Dokonalá dovolená. Určitě se vrátíme."</p>
+            <span>- Martin P.</span>
+        </div>
+          <div class="review">
+            <p>"Skvělý pobyt! Perfektní lokalita a útulné prostředí."</p>
+            <span>- Petra S.</span>
+        </div>
+    </section>
+    
+
+    <section id="faq" class="faq">
+        <h2>Často kladené dotazy</h2>
+        <div class="faq-item">
+            <button class="faq-question">Je snídaně v ceně?</button>
+            <div class="faq-answer">Ano, snídaně je zahrnuta v ceně ubytování.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Máte parkování?</button>
+            <div class="faq-answer">Ano, hotel nabízí parkování pro hosty zdarma.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Jaká je storno podmínka rezervace?</button>
+            <div class="faq-answer">
+            Storno je možné nejpozději 24 hodin před datem příjezdu zdarma, později účtujeme 50 % z ceny rezervace.
+            </div>
+        </div>
+    </section>
+
+<section id="reservation" class="reservation">
+  <h2>Rezervační formulář</h2>
+  <form id="reservationForm" action="reservation.php" method="post" class="res-form">
+    <div class="res-row">
+      <div class="res-group">
+        <label for="name">Vaše jméno</label>
+        <input type="text" id="name" name="name" placeholder="Zadejte své jméno" required>
+      </div>
+      <div class="res-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="email@domena.cz" required>
+      </div>
+    </div>
+
+    <div class="res-row">
+      <div class="res-group full">
+        <label>Vyberte typ pokoje</label>
+        <div class="room-options">
+          <input type="radio" id="room-president" name="room" value="president" required>
+          <label for="room-president">Prezidentské apartmá</label>
+
+          <input type="radio" id="room-suite" name="room" value="suite">
+          <label for="room-suite">Luxusní suite</label>
+
+          <input type="radio" id="room-romantic" name="room" value="romantic">
+          <label for="room-romantic">Romantický pokoj</label>
+
+          <input type="radio" id="room-business" name="room" value="business">
+          <label for="room-business">Business Deluxe</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-row">
+      <div class="res-group">
+        <label for="checkin">Datum příjezdu</label>
+        <input type="date" id="checkin" name="checkin" required>
+      </div>
+      <div class="res-group">
+        <label for="checkout">Datum odjezdu</label>
+        <input type="date" id="checkout" name="checkout" required>
+      </div>
+    </div>
+    <div class="res-row">
+      <div class="res-group full">
+        <div id="total" class="total-price">Celková cena: 0 Kč</div>
+      </div>
+    </div>
+
+    
+
+    <div class="res-row">
+      <div class="res-group full">
+        <label for="message">Speciální požadavky</label>
+        <textarea id="message" name="message" rows="4" placeholder="Zadejte vzkaz"></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="res-submit">Odeslat rezervaci</button>
+  </form>
+</section>
+
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Mapa -->
+    <div class="footer-map">
+      <h3>Naše poloha</h3>
+      <iframe style="border:none" src="https://mapy.com/s/kolavujeve" width="400" height="280" frameborder="0"></iframe>
+    </div>
+
+    <!-- Odkazy + kontakty -->
+    <div class="footer-links">
+
+      <div class="footer-col">
+        <h4>Navigace</h4>
+        <ul>
+          <li><a href="index.html">Domů</a></li>
+          <li><a href="#rooms">Pokoje</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#reservation">Rezervace</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <p>Email: <a href="mailto:info@aurumverde.cz">info@aurumverde.cz</a></p>
+        <p>Tel: <a href="tel:+420123456789">+420 123 456 789</a></p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Sledujte nás</h4>
+        <div class="social">
+        <a href="https://facebook.com/tvajmeno" target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f fa-xl"></i>
+        </a>
+
+        <a href="https://instagram.com/tvajmeno" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram fa-2xl"></i>
+        </a>
+        <a href="https://twitter.com/tvajmeno" target="_blank" rel="noopener">
+            <i class="fa-brands fa-twitter fa-2xl"></i>
+        </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

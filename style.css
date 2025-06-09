@@ -1,0 +1,694 @@
+/* Import fontu */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Základní nastavení */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+    background-color: #F5F5F5;
+    color: #222222;
+    line-height: 1.6;
+}
+
+/* ---------- Header základ --------- */
+header {
+  background-color: #1B3B2F;
+  color: white;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Container pro desktop */
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Logo centrálně */
+.logo img {
+    max-height: 70px;/*nebo jakákoliv výška, která Ti vyhovuje */
+    width: auto;
+    object-fit: contain;
+}
+/* Menu centrálně pod logem */
+.nav-menu {
+    text-align: center;
+}
+.nav-menu ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+.nav-menu li + li {
+    margin-left: 1.5rem;
+}
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+.nav-menu a:hover {
+    color: #B38B2D;
+}
+
+/* Tlačítko menu pro mobil */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* -------- Responsivita -------- */
+@media (max-width: 768px) {
+    /* Layout header: logo vlevo, tlačítko vpravo */
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    /* Zobrazit menu-toggle */
+    .menu-toggle {
+        display: block;
+    }
+    /* Schovat klasické menu */
+    .nav-menu {
+        display: none;
+    }
+    /* Když má nav-menu třídu .open, zobrazí se */
+    .nav-menu.open {
+        display: block;
+        background-color: #1B3B2F;
+        padding: 1rem 0;
+    }
+    .nav-menu.open ul {
+        flex-direction: column;
+    }
+    .nav-menu.open li + li {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+}
+
+
+.hero {
+    background: url('images/banner.jpg') no-repeat center center/cover;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    background-color: #B38B2D;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: #9a7325;
+    transform: scale(1.05);
+}
+
+/* Speciální nabídka */
+.countdown {
+    background-color: #1B3B2F;
+    color: #ffffff;
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.special-offer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #B38B2D;
+}
+
+.countdown #timer {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.rooms, .reviews, .pricing, .faq, .reservation {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.carousel {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+
+.carousel-item {
+    min-width: 100%;
+    background-color: #F5F5F5;     /* jemné šedé pozadí místo bílé */
+    border: 2px solid #1B3B2F;
+    border-radius: 10px;
+    padding: 1.5rem;               /* více paddingu, aby nebylo nic useklé */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carousel-item h3 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: #1B3B2F;
+}
+
+.carousel-item p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: #222222;
+}
+
+.carousel-item .price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #B38B2D;
+    margin-bottom: 1rem;
+}
+
+/* tlačítko "Zjistit více" */
+.btn-secondary {
+    display: block;                /* aby bylo plně vidět */
+    margin: 1rem auto 0;           /* odsazení nahoře a vycentrování */
+    background-color: #FFFFFF;
+    color: #1B3B2F;
+    border: 2px solid #B38B2D;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+.btn-secondary:hover {
+    background-color: #B38B2D;
+    color: white;
+}
+
+
+#prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #B38B2D;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+#prev { left: 10px; }
+#next { right: 10px; }
+
+.review {
+    background: white;
+    padding: 2rem;
+    margin: 1rem auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Sekce Recenze */
+.reviews {
+    background-color: #F5F5F5;
+    padding: 4rem 2rem;
+}
+
+.reviews h2 {
+    color: #1B3B2F;
+}
+
+/* Jednotlivá recenze */
+.review {
+    background-color: #FFFFFF;
+    border-left: 4px solid #B38B2D;
+    padding: 2rem;
+    margin: 1rem auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Citace a autor */
+.review p {
+    color: #222222;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.review span {
+    display: block;
+    text-align: right;
+    color: #1B3B2F;
+    font-weight: 600;
+}
+
+/* Zlatá hvězdičková dekorační lišta (volitelné) */
+.review::before {
+    content: "★ ★ ★ ★ ★";
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    color: #B38B2D;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+/* Responsivní úprava */
+@media (max-width: 768px) {
+    .review {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+    text-align: left;
+    max-width: 600px;
+    margin: 1rem auto;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: #B38B2D;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.faq-answer {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s ease;
+    overflow: hidden;
+    padding: 0 1rem;     /* horizontální odsazení zachováme stále */
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+
+.faq-answer.open {
+    transform: scaleY(1);
+    padding: 1rem;       /* při otevření přidáme vertikální odsazení */
+}
+
+/* ===== Rezervační formulář ===== */
+.reservation {
+  background-color: #1B3B2F;
+  color: #FFFFFF;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.reservation h2 {
+  color: #B38B2D;
+  margin-bottom: 2rem;
+}
+
+/* Form Wrapper */
+.res-form {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Řádky (dva sloupce nebo full-width) */
+.res-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Skupina label+input */
+.res-group {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.res-group.full {
+  flex: 1 1 100%;
+}
+
+/* Labely */
+.res-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #F5F5F5;
+}
+
+/* Vstupy a textarea */
+.res-group input[type="text"],
+.res-group input[type="email"],
+.res-group input[type="date"],
+.res-group textarea {
+  background-color: #F5F5F5;
+  border: 2px solid #B38B2D;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: #222222;
+  transition: border-color 0.3s;
+}
+
+.res-group input:focus,
+.res-group textarea:focus {
+  outline: none;
+  border-color: #FFFFFF;
+}
+
+/* Radio Buttons – stylované jako tlačítka */
+.room-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.room-options label {
+  background-color: #FFFFFF;
+  color: #1B3B2F;
+  border: 2px solid #B38B2D;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  flex: 1;
+  text-align: center;
+}
+
+.room-options input[type="radio"] {
+  display: none;
+}
+
+.room-options input[type="radio"]:checked + span,
+.room-options input[type="radio"]:checked + label {
+  background-color: #B38B2D;
+  color: #FFFFFF;
+}
+
+.total-price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #F5F5F5;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Submit button */
+.res-submit {
+  background-color: transparent;
+  border: 2px solid #B38B2D;
+  color: #B38B2D;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1rem;
+  align-self: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.res-submit:hover {
+  background-color: #B38B2D;
+  color: #FFFFFF;
+}
+
+/* Responsivní úpravy */
+@media (max-width: 768px) {
+  .res-row {
+    flex-direction: column;
+  }
+  .res-group {
+    min-width: 100%;
+  }
+}
+
+
+/* ===== Footer ===== */
+.site-footer {
+  border-top: 4px solid #B38B2D;
+  background-color: #1B3B2F;
+  color: #F5F5F5;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Mapa */
+.footer-map {
+  flex: 1 1 300px;
+}
+.footer-map h3 {
+  color: #B38B2D;
+  margin-bottom: 1rem;
+}
+.footer-map img {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #B38B2D;
+}
+
+/* Odkazy a kontakty */
+.footer-links {
+  flex: 2 1 600px;
+  display: flex;
+  gap: 2rem;
+}
+
+/* Sloupce */
+.footer-col h4 {
+  color: #B38B2D;
+  margin-bottom: 0.75rem;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-col li + li {
+  margin-top: 0.5rem;
+}
+.footer-col a {
+  color: #F5F5F5;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-col a:hover {
+  color: #B38B2D;
+}
+
+/* Sociální ikony */
+.social img {
+  width: 24px;
+  /* ikony jsou černé v PNG, převrátíme je na bílou */
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.social a:hover img {
+  /* při hoveru přidáme zlatý tón */
+  filter: brightness(0) saturate(100%) sepia(1)
+          hue-rotate(40deg) saturate(750%) brightness(1);
+}
+
+
+/* Spodní řádek */
+.footer-bottom {
+  background-color: #162e26;
+  text-align: center;
+  padding: 1rem;
+}
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Responsivita */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-col {
+    text-align: center;
+  }
+}
+
+/* ----- XL desktopy (1200px+) - případně nic neměnit ----- */
+
+/* ----- L desktopy (992px–1199px) ----- */
+@media (max-width: 1199px) {
+  .hero h1 { font-size: 2.5rem; }
+  .hero { height: 70vh; }
+  .carousel-item img { height: 300px; }
+}
+
+/* ----- Tablety / malé desktopy (768px–991px) ----- */
+@media (max-width: 991px) {
+  .hero h1 { font-size: 2rem; }
+  .hero p  { font-size: 1rem; }
+  .hero { height: 60vh; }
+
+  .carousel-item img { height: 250px; }
+  .carousel-item h3 { font-size: 1.3rem; }
+  .carousel-item .price { font-size: 1.1rem; }
+
+  .reviews, .countdown, .reservation {
+    padding: 3rem 1.5rem;
+  }
+}
+
+/* ----- Mobily / malé tablety (576px–767px) ----- */
+@media (max-width: 767px) {
+  header { padding: 0.75rem 1rem; }
+  .header-container { flex-direction: row; }
+  .logo img { max-height: 50px; }
+
+  .hero h1 { font-size: 1.5rem; }
+  .hero p  { font-size: 0.9rem; }
+  .hero { height: 50vh; }
+
+  .countdown, .rooms, .reviews, .faq, .reservation {
+    padding: 2rem 1rem;
+  }
+
+  /* Carousel se stále zobrazuje jen 1 položka, ale padding zmenšíme */
+  .carousel-item {
+    padding: 1rem 0.5rem;
+  }
+  .carousel-item img { height: 200px; }
+
+  /* Recenze full-width */
+  .review { max-width: 100%; margin: 1rem 0; }
+
+  /* Rezervační formulář – řádky do jednoho sloupce */
+  .res-row { flex-direction: column; gap: 1rem; }
+  .res-group { min-width: 100%; }
+}
+
+/* ----- Velmi malé mobily (<576px) ----- */
+@media (max-width: 575px) {
+  .btn, .btn-secondary, .res-submit {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .faq-question {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+
+  .social img, .social i {
+    width: 20px;
+  }
+
+  .footer-container {
+    padding: 2rem 1rem;
+    gap: 1rem;
+  }
+  .footer-map { flex: 1 1 100%; }
+  .footer-links { flex-direction: column; gap: 1rem; }
+}
+
